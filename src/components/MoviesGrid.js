@@ -6,26 +6,29 @@ const MoviesGrid = () => {
   const [state] = useContext(StateContext);
   const SingleMovie = ({ item }) => {
     return (
+       
       <MovieItem
         key={item.id}
         movieId={item.id}
         original_title={item.original_title}
         release_date={item.release_date}
         poster_path={item.poster_path}
-        vote_average={item.vote_average} />
-    )
-  }
+        vote_average={item.vote_average}
+      />
+    
+    );
+  };
   if (state.genre) {
     return state.movies
-    
+
       .filter((m) => m.genre_ids.includes(state.genre))
       .map((items) => <SingleMovie item={items} />);
   }
   return state.movies.map((items) => {
-    return (
-     <SingleMovie item={items} />
-    );
+    return <SingleMovie item={items} />;
+    
   });
+  
 };
 
 export default MoviesGrid;

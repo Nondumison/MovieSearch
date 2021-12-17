@@ -4,11 +4,15 @@ import { Container, Row } from "react-bootstrap";
 
 const Main = () => {
   return (
+        
+      
     <div className="container">
       <Row md={2} lg={5}>
         <MoviesGrid />
       </Row>
     </div>
+     
+     
   );
 };
 

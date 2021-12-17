@@ -12,6 +12,7 @@
     "react-corner-ribbon": "^0.0.5",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
+    "react-infinite-scroll-component": "^6.1.0",
     "react-router-dom": "^6.1.1",
     "react-scripts": "5.0.0",
     "web-vitals": "^2.1.2"
@@ -39,5 +40,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "prettier": "2.5.1"
   }
 }

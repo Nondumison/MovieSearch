@@ -45,9 +45,9 @@ const MoviePage = (props) => {
   const setVoteClass = (vote_avg) => {
     if (vote_avg >= 7) {
       return "green";
-    } else if (vote_avg >= 5 && vote_avg < 7 ) {
+    } else if (vote_avg >= 5 && vote_avg < 7) {
       return "yellow";
-    } else if (vote_avg < 5  ) {
+    } else if (vote_avg < 5) {
       return "red";
     } else {
       return "grey";
@@ -55,61 +55,96 @@ const MoviePage = (props) => {
   };
 
   return (
-    <div>
+    <div className="container">
       {movieData && movieTrailer && movieCast && (
         <div>
-          <div id="moviepagecont">
-            <div id="postercont">
-              <img
-                src={
-                  `https://image.tmdb.org/t/p/w200` + movieData.poster_path
-                }
-                alt={movieData.title}
-                className="image2"
-              />
-             
-              
-            </div>
-            <div id="infocont">
-              <h3 id="info">
-              <h3 id="title"><u>{movieData.original_title}</u><span><h6 id="reldate" style={{fontWeight:'normal'}}>{movieData.release_date}</h6></span></h3>
-              
-              <h3 className={`tag ${setVoteClass(movieData.vote_average)}`} id="rate"style={{fontWeight:'bold'}}>Rating {movieData.vote_average}</h3>
-                {/* {" "} */}
-                <h3 style={{fontWeight:'bold'}}>Overview</h3>
-              </h3>
-              <p> {movieData.overview} </p>
+          <div class="card">
+            <div class="row no-gutters">
+              <div class="col-auto">
+                <img
+                  src={
+                    `https://image.tmdb.org/t/p/w200` + movieData.poster_path
+                  }
+                  alt={movieData.title}
+                  class="img-fluid"
+                  alt=""
+                />
+              </div>
+              <div class="col">
+                <div class="card-block px-2">
+                  <h3 class="card-title">
+                    <u>{movieData.original_title}</u>
+                  </h3>
+                  <span id="reldate" style={{ fontsize: "18px" }}>
+                    {movieData.release_date}
+                  </span>
+                  <br />
 
+                  <h3
+                    className={`tag2 ${setVoteClass(movieData.vote_average)}`}
+                    id="rate"
+                    style={{ fontWeight: "bold" }}
+                  >
+                    <span>Rating {movieData.vote_average}</span>
+                  </h3>
+                  <h3 style={{ fontWeight: "bold" }}>Overview</h3>
+                  <p class="card-text"> {movieData.overview}</p>
+                  <h3 style={{ fontWeight: "bold" }}>Genres</h3>
 
-              <h3 id="info">
-                <h3 style={{fontWeight:'bold'}}>Genres</h3>
-              </h3>
-                <p>{movieData.genres.map((val) => (
-                  <span key={val.id}>{val.name}, </span>
-                ))}</p>
-              
+                  <p>
+                    {movieData.genres.map((val) => (
+                      <span key={val.id}>{val.name}, </span>
+                    ))}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
-          <form clas="form d-flex justify-content-flex-start">
-  <div class="form-group d-flex justify-content-flex-start ">
-    
-    <input type="text" class="form-control " id="formGroupExampleInput"  placeholder="Fist Name"/>
-  </div>
-  <div class="form-group d-flex justify-content-left">
-    
-    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Username"/>
-  </div>
-  <div class="form-group d-flex justify-content-flex-start">
-    
-    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Email Address"/>
-  </div>
-  <div class="form-group d-flex justify-content-flex-start">
-    
-    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Phone Number"/>
-  </div>
-  <button type="button d-flex justify-content-flex-start" class="btn btn-lg btn-primary" style={{backgroundColor:"green"}}disabled>Get Movies</button>
 
-</form>
+          <div class="form-group">
+            <div class="col-lg-4 col-lg-offset-4">
+              <div class="form-inline  justify-content-center">
+                <div class="form-group col-xs-12 col-sm-6 col-md-4 col-lg-2">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Fist Name *"
+                  />
+                </div>
+                <div class="form-group col-xs-12 col-sm-6 col-md-4 col-lg-2">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Username *"
+                  />
+                </div>
+                <div class="form-group col-xs-12 col-sm-6 col-md-4 col-lg-2">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Email Address *"
+                  />
+                </div>
+                <div class="form-group col-xs-12 col-sm-6 col-md-4 col-lg-2">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Phone Number *"
+                  />
+                </div>
+                <button className="button2"
+                  type="button justify-content-end"
+                //   class="btn btn-lg "
+                //   style={{ backgroundColor: "green" }}
+                //   style={{ color: "black" }}
+                 
+                >
+                  Get Movies
+                </button>
+              </div>
+            </div>
+          </div>
+
           {/* <form id="info" >
    
     <input type="text" id="fname" name="firstname" placeholder="First Name"/>
@@ -121,15 +156,15 @@ const MoviePage = (props) => {
   
     <input type="submit" value="Submit"/>
   </form> */}
-  <div id="postercont">
-  <div className="back">
-                <Link to="/" style={{ textDecoration: "none" }}>
-                  <div className="back">
-                    <MdArrowBack size="2em" /> Back{" "}
-                  </div>
-                </Link>
-              </div>
-        </div>
+          <div id="postercont">
+            <div className="back">
+              <Link to="/" style={{ textDecoration: "none" }}>
+                <div className="back">
+                  <MdArrowBack size="2em" /> Back{" "}
+                </div>
+              </Link>
+            </div>
+          </div>
         </div>
       )}
     </div>
